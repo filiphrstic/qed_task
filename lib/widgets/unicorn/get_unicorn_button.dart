@@ -43,6 +43,10 @@ class UpdateUnicornButton extends ConsumerWidget {
           FocusManager.instance.primaryFocus?.unfocus();
           await ref.read(unicornProvider).updateUnicorn(unicorn);
           ref.refresh(unicornFutureProvider);
+          final snackBar = SnackBar(
+            content: Text("Unicorn name updated to ${unicorn.name!}"),
+          );
+          ScaffoldMessenger.of(context).showSnackBar(snackBar);
         });
   }
 }
