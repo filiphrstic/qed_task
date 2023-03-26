@@ -1,4 +1,8 @@
+import 'dart:math';
+
+import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:word_generator/word_generator.dart';
 
 part 'unicorn_model.freezed.dart';
 part 'unicorn_model.g.dart';
@@ -30,4 +34,15 @@ class UnicornResponse {
       print("Error: $error");
     }
   }
+}
+
+Unicorn randomUnicorn() {
+  final wordGenerator = WordGenerator();
+  String randomName = wordGenerator.randomName();
+  int randomColorIndex = Random().nextInt(Colors.primaries.length);
+  Unicorn randomUnicorn = Unicorn(
+      name: randomName,
+      age: Random().nextInt(100),
+      colour: randomColorIndex.toString());
+  return randomUnicorn;
 }

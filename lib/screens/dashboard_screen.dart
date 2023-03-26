@@ -1,6 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:fhrstic_task/widgets/fp_button.dart';
-import 'package:fhrstic_task/widgets/unicorn/get_unicorn_button.dart';
+import 'package:fhrstic_task/widgets/unicorn/unicorn_buttons.dart';
 import 'package:fhrstic_task/widgets/unicorn/unicorns_list.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/material.dart';
