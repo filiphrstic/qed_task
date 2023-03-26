@@ -1,4 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
+import 'package:fhrstic_task/widgets/fp_button.dart';
+import 'package:fhrstic_task/widgets/unicorn/get_unicorn_button.dart';
+import 'package:fhrstic_task/widgets/unicorn/unicorns_list.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -60,44 +63,53 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
         body: Padding(
           padding: const EdgeInsets.all(30),
           child: Center(
-              child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              // Text("App Name: $appName"),
-              // Text("packageName: $packageName"),
-              // Text("version: $version"),
-              // Text("buildNumber: $buildNumber"),
-              // Divider(),
-              // Text("Banner Ad", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),),
-              // Padding(padding: EdgeInsets.all(20), child: BannerAdBlock()),
-              // Text("Native Ad", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),),
-              // Padding(padding: EdgeInsets.all(20), child: NativeAdBlock()),
-              // Text("Rewarded Inter. Ad", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),),
-              // Padding(padding: EdgeInsets.all(20), child: RewardAdBlock()),
-              // Divider(),
-              // SizedBox(
-              //   height: 50,
-              // ),
-              ListTile(
-                title: const Text("Dark Theme"),
-                trailing: Switch(
-                    value: Theme.of(context).brightness == Brightness.dark,
-                    onChanged: (value) async {
-                      if (Theme.of(context).brightness == Brightness.light) {
-                        ref
-                            .read(themeProvider.notifier)
-                            .setThemeMode(ThemeMode.dark);
-                      } else {
-                        ref
-                            .read(themeProvider.notifier)
-                            .setThemeMode(ThemeMode.light);
-                      }
-                      //await EvaTheme.initialize();
-                    }),
-              ),
-            ],
-          )),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                // Text("App Name: $appName"),
+                // Text("packageName: $packageName"),
+                // Text("version: $version"),
+                // Text("buildNumber: $buildNumber"),
+                // Divider(),
+                // Text("Banner Ad", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),),
+                // Padding(padding: EdgeInsets.all(20), child: BannerAdBlock()),
+                // Text("Native Ad", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),),
+                // Padding(padding: EdgeInsets.all(20), child: NativeAdBlock()),
+                // Text("Rewarded Inter. Ad", style: TextStyle(fontWeight: FontWeight.bold, fontSize: 17),),
+                // Padding(padding: EdgeInsets.all(20), child: RewardAdBlock()),
+                // Divider(),
+                // SizedBox(
+                //   height: 50,
+                // ),
+                ListTile(
+                  title: const Text("Dark Theme"),
+                  trailing: Switch(
+                      value: Theme.of(context).brightness == Brightness.dark,
+                      onChanged: (value) async {
+                        if (Theme.of(context).brightness == Brightness.light) {
+                          ref
+                              .read(themeProvider.notifier)
+                              .setThemeMode(ThemeMode.dark);
+                        } else {
+                          ref
+                              .read(themeProvider.notifier)
+                              .setThemeMode(ThemeMode.light);
+                        }
+                        //await EvaTheme.initialize();
+                      }),
+                ),
+                Row(
+                  children: const [
+                    GetUnicornsButton(),
+                    Spacer(),
+                    CreateUnicornButton(),
+                  ],
+                ),
+                UnicornsList(),
+              ],
+            ),
+          ),
         ), // This trailing comma makes auto-formatting nicer for build methods.
       ),
     );

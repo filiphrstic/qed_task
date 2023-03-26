@@ -20,9 +20,14 @@ Unicorn _$UnicornFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Unicorn {
+  String? get id => throw _privateConstructorUsedError;
+  set id(String? value) => throw _privateConstructorUsedError;
   String? get name => throw _privateConstructorUsedError;
+  set name(String? value) => throw _privateConstructorUsedError;
   int? get age => throw _privateConstructorUsedError;
-  String? get color => throw _privateConstructorUsedError;
+  set age(int? value) => throw _privateConstructorUsedError;
+  String? get colour => throw _privateConstructorUsedError;
+  set colour(String? value) => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -34,7 +39,7 @@ abstract class $UnicornCopyWith<$Res> {
   factory $UnicornCopyWith(Unicorn value, $Res Function(Unicorn) then) =
       _$UnicornCopyWithImpl<$Res, Unicorn>;
   @useResult
-  $Res call({String? name, int? age, String? color});
+  $Res call({String? id, String? name, int? age, String? colour});
 }
 
 /// @nodoc
@@ -50,11 +55,16 @@ class _$UnicornCopyWithImpl<$Res, $Val extends Unicorn>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = freezed,
     Object? name = freezed,
     Object? age = freezed,
-    Object? color = freezed,
+    Object? colour = freezed,
   }) {
     return _then(_value.copyWith(
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
       name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -63,9 +73,9 @@ class _$UnicornCopyWithImpl<$Res, $Val extends Unicorn>
           ? _value.age
           : age // ignore: cast_nullable_to_non_nullable
               as int?,
-      color: freezed == color
-          ? _value.color
-          : color // ignore: cast_nullable_to_non_nullable
+      colour: freezed == colour
+          ? _value.colour
+          : colour // ignore: cast_nullable_to_non_nullable
               as String?,
     ) as $Val);
   }
@@ -78,7 +88,7 @@ abstract class _$$_UnicornCopyWith<$Res> implements $UnicornCopyWith<$Res> {
       __$$_UnicornCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? name, int? age, String? color});
+  $Res call({String? id, String? name, int? age, String? colour});
 }
 
 /// @nodoc
@@ -91,11 +101,16 @@ class __$$_UnicornCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = freezed,
     Object? name = freezed,
     Object? age = freezed,
-    Object? color = freezed,
+    Object? colour = freezed,
   }) {
     return _then(_$_Unicorn(
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
       name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -104,9 +119,9 @@ class __$$_UnicornCopyWithImpl<$Res>
           ? _value.age
           : age // ignore: cast_nullable_to_non_nullable
               as int?,
-      color: freezed == color
-          ? _value.color
-          : color // ignore: cast_nullable_to_non_nullable
+      colour: freezed == colour
+          ? _value.colour
+          : colour // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -115,36 +130,24 @@ class __$$_UnicornCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_Unicorn implements _Unicorn {
-  const _$_Unicorn({this.name, this.age, this.color});
+  _$_Unicorn({this.id, this.name, this.age, this.colour});
 
   factory _$_Unicorn.fromJson(Map<String, dynamic> json) =>
       _$$_UnicornFromJson(json);
 
   @override
-  final String? name;
+  String? id;
   @override
-  final int? age;
+  String? name;
   @override
-  final String? color;
+  int? age;
+  @override
+  String? colour;
 
   @override
   String toString() {
-    return 'Unicorn(name: $name, age: $age, color: $color)';
+    return 'Unicorn(id: $id, name: $name, age: $age, colour: $colour)';
   }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$_Unicorn &&
-            (identical(other.name, name) || other.name == name) &&
-            (identical(other.age, age) || other.age == age) &&
-            (identical(other.color, color) || other.color == color));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode => Object.hash(runtimeType, name, age, color);
 
   @JsonKey(ignore: true)
   @override
@@ -161,17 +164,23 @@ class _$_Unicorn implements _Unicorn {
 }
 
 abstract class _Unicorn implements Unicorn {
-  const factory _Unicorn(
-      {final String? name, final int? age, final String? color}) = _$_Unicorn;
+  factory _Unicorn({String? id, String? name, int? age, String? colour}) =
+      _$_Unicorn;
 
   factory _Unicorn.fromJson(Map<String, dynamic> json) = _$_Unicorn.fromJson;
 
   @override
+  String? get id;
+  set id(String? value);
+  @override
   String? get name;
+  set name(String? value);
   @override
   int? get age;
+  set age(int? value);
   @override
-  String? get color;
+  String? get colour;
+  set colour(String? value);
   @override
   @JsonKey(ignore: true)
   _$$_UnicornCopyWith<_$_Unicorn> get copyWith =>
