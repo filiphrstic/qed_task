@@ -3,7 +3,7 @@ import 'package:fhrstic_task/data/models/unicorn_model.dart';
 
 class ApiService {
   String endpoint =
-      "https://crudcrud.com/api/3fd41fb2c3054e5a9a3e9bb2301682ec/unicorns";
+      "https://crudcrud.com/api/4a4be7de8dda4a14bb371535a27bd879/unicorns";
 
   Future<List<Unicorn>> getUnicorns() async {
     Dio dio = Dio();
